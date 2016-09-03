@@ -81,6 +81,7 @@ def parse_parens(tokens):
         token = tokens.pop(0)
         if token == '(':
             tree.append(parse_parens(tokens))
+            # NOTE: tokens references same list in all recursions of parse_parens!
         elif token == ')':
             return tree
         else:

@@ -6,7 +6,7 @@
 
 ;; helper function to do the calculation
 (define (apply-op op arg1 arg2)
-  (cond [(eq? op '+) (+ arg1 arg2)]
+  (cond [(eq? op '+) (+ arg1 arg2)]  ;; this is an if, elif, elif, elif
         [(eq? op '-) (- arg1 arg2)]
         [(eq? op '*) (* arg1 arg2)]
         [(eq? op '/) (/ arg1 arg2)]))
@@ -17,7 +17,7 @@
 (define (calc-as-you-go-helper arg1 input)
   (cond [(null? input) arg1]
         [else
-         (calc-as-you-go-helper (apply-op (first input) arg1 (second input)) (list-tail input 2))]))
+         (calc-as-you-go-helper (apply-op (first input) arg1 (second input)) (list-tail input 2))]))  ;; Question: is this a list slice?
 
 (define (calc-as-you-go input)
   (calc-as-you-go-helper (first input) (rest input)))
@@ -34,6 +34,7 @@
   (cond [(null? input)
          (first stack)]
         [(number? (first input))
+         ;; lolwut??? rest input??? is that like input[1:] always?
          (calc-rpn-helper (rest input) (cons (first input) stack))]
         [else
          (calc-rpn-helper (rest input) (cons (apply-op (first input) (second stack) (first stack)) (list-tail stack 2)))]))
