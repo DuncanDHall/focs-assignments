@@ -1,0 +1,25 @@
+#lang racket
+
+;; 0. Factorial
+
+(define (factorial n)
+  (cond [(= n 1) (n)]
+        [else
+          (* n (factorial (- n 1)))]))
+
+(display (factorial 5))
+(display (factorial 100))
+
+(define (fact n)
+  (ffact n 1))
+
+(define (ffact n sofar)
+  (if (= n 1)
+      sofar
+      (ffact (- n 1) (* sofar n))))
+
+(display (fact 100))
+
+
+;; 1. Filter
+
