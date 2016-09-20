@@ -23,13 +23,12 @@
         [(list? expr) (cond [(eq? (first expr) 'DEFINE)
                              (my-define (second expr) (my-eval(third expr)))]
                             [(eq? (first expr) 'LAMBDA)
-                             (let ([args (second expr)] [body (third expr)])
-                               (lambda (args) (my-eval body)))] ;; I can't get this. I'm sorry. I can't work more tonight...
+                             (lambda (second expr) (third expr))] ;; I can't get this. I'm sorry. I can't work more tonight...
                             [(list? (first expr))
                              (my-eval (cons (my-eval (first expr))
                                             (rest expr)))]
                             [(procedure? (first expr))
-                             (apply (first expr) (rest expr))]
+                             (apply (first expr) (first (rest expr)))]
                             [(symbol? (first expr))
                              (let ([binding (assq (first expr) bindings)])
                                 (if binding
