@@ -25,9 +25,14 @@ Convert the automaton you created for problem 1 into a deterministic automaton. 
 
 The automata we have considered so far accept only strings over the alphabet {0,1}.  Consider a machine that could accept strings over a larger alphabet, such as the English alphabet (`a` through `z`, at least; we'll ignore case and punctuation for the moment).  Would such a machine be more powerful?  Why or why not?  Try to construct a formal proof for your answer, at least for the alphabet {`a`,`b`,`c`,`d`}.
 
+*answer:* A machine with a larger alphabet could not be more powerful. Sticking to the {`a`,`b`,`c`,`d`} example, we could duplicate the functionality by consuming two bits per state change in a binary machine {00, 01, 10, 11}. Thus one transition from from q_n to q_m in a 4-state bit system could be represented by two state changes which take half as long in a 2-state bit system (half the number of options to check).
+
 ### 4. [*] Challenge: Reverse
 
 Assume that you have a deterministic finite automaton A that recognizes a language L.  Show how to construct an automaton that recognizes L_reverse, that is, s is a string in L_reverse iff s_reverse -- s spelled backwards -- is in L.
+
+*answer:* The immediately apparent logic is that by switching the accepting state with the starting state and reversing the direction of every transition, one could create A_reverse mechanically. However, this doesn't work for automata which match substrings (for example the automata I drew for question 2 on this homework). A reverse can be done, it's just not so simple.
+*edit:* After reading the hint below, I am convinced. Reversing the transitions and switching start states for acceptance states (and vice versa) will produce a non-detirministic A_reverse.
 
 Hint for prover types:  You may assume that A has a set of states Q = {q0, ... qn} and operates over the alphabet {0,1}; that A's start state is q0; that F, a subset of Q, is the set of A's accepting states; and that you have a transition table delta with rules of the form qi, x --> qj for x in {0,1}. 
 
@@ -44,9 +49,12 @@ Hint for everyone:  This problem is easier if your answer is nondeterministic.
 ### 5. Reading
 
 Read Sipser section 1.3 “Regular Expressions”.
+*done, makes sense.*
 
 Optionally, read Stuart pp.79-103.
 
 ### 6. Regular Expression Practice
 
 Construct a regular expression that matches *all* and *only* those strings that contain exactly one `1` (and any number of `0`s). For example, `1`, `0010`, `100`; but not `0` or `101`.
+
+0*10*
