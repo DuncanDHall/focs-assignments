@@ -50,12 +50,12 @@ Construct these. Some you may be able to do by just by thinking. Some may be eas
 
 - A regular expressions that matches strings with an even number of 0s.
 
-*answer:* 1\* (0 1\* 0)*
+*answer:* 1\* (0 1\* 0)\*
 
 
 - A regular expressions that matches strings with an odd number of 1s AND an even number of 0s.
 
-*answer:* (0 (11)\* 0)\* (1 U 010) ((00) U ((1 U 010) (1 U 010)))*
+*answer:* (0 (11)\* 0)\* (1 U 010) ((00) U ((1 U 010) (1 U 010)))\*
 
 - A regular expressions that matches strings with an odd number of 1s OR an even number of 0s.
 
@@ -74,4 +74,11 @@ Learn about [character classes](https://regexone.com/lesson/letters_and_digits) 
 
 Which of these are just notational conveniences, like `[abc]` for `(a|b|c)`?
 
+*answer:* all of them:
+\d = [0-9]
+a{2,4} = aaa?a?
+(a|b|c)def\1 = (adefa|bdefb|cdefc)
+\b = [\s;:\.\?!'"] (maybe it has a Kleen plus... dunno)
+
 Which increase the power of regular expressions?
+*answer:* I guess that leaves none...
