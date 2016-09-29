@@ -28,7 +28,7 @@ b) All strings with an equal number of occurrences of the substrings `01` and `1
 
 [010 is in this language; `000110` is in the language; `0101010` is in the language; but `010101` is not.]
 
-*answer:* regular: `((0+1*)*0+)*` or `(0+1*)*0+ U ''`
+*answer:* regular: `((0+1*)*0+)?` or `(0+1*)*0+ U ''`
 
 c) All strings (over {0,1}) consisting of a substring _w_ followed by the reverse of the substring.
 
